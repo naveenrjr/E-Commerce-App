@@ -69,7 +69,7 @@ componentWillUnmount(){
         <Switch>
         <Route path="/" exact component={HomePage}/>
         <Route path="/shop" exact component={ShopPage}/>
-        <Route path="/signin" exact render={()=>currentUser?<Redirect/>:<SignInAndSignUp/>}/>
+        <Route path="/signin" exact render={()=>currentUser?<Redirect to ="/"/>:<SignInAndSignUp/>}/>
         </Switch>
       </div>
     );

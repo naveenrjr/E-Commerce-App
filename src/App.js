@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop-page/shop-page.component';
@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 import SignInAndSignUp from './pages/sign-in-up/sign-in-up.component';
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 import setCurrentUser from './redux/actions/user-actions';
-
+import {createStructuredSelector} from 'reselect';
+import { selectCurrentUser } from './redux/reducers/userSelector';
 
 class App extends React.Component {
 
@@ -75,8 +76,8 @@ componentWillUnmount(){
     );
   }
 }
-const mapStateToProps = ({user})=>({
-  currentUser:user.currentUser
+const mapStateToProps =createStructuredSelector({
+  currentUser:selectCurrentUser
 })
 const mapDispatchtoProps = dispatch =>{
   return{

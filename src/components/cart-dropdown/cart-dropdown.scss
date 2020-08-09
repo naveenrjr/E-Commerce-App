@@ -10,11 +10,16 @@ right: 40px;
 top:80px;
 padding:20px;
 border:1px solid black;
+
  .cart-items{
      height:240px;
      display: flex;
      flex-direction: column;
      overflow: scroll;
+ }
+ .empty-message {
+     font-size: 18px;
+     margin:auto;
  }
 
  button{

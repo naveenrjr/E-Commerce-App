@@ -10,6 +10,7 @@ import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 import setCurrentUser from './redux/actions/user-actions';
 import {createStructuredSelector} from 'reselect';
 import { selectCurrentUser } from './redux/reducers/userSelector';
+import Checkout from './components/checkout/checkout';
 
 class App extends React.Component {
 
@@ -70,7 +71,9 @@ componentWillUnmount(){
         <Switch>
         <Route path="/" exact component={HomePage}/>
         <Route path="/shop" exact component={ShopPage}/>
+        <Route path="/checkout" exact component={Checkout}/>
         <Route path="/signin" exact render={()=>currentUser?<Redirect to ="/"/>:<SignInAndSignUp/>}/>
+        
         </Switch>
       </div>
     );

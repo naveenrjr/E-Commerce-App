@@ -1,5 +1,5 @@
 import CartActionTypes from "../actions/cart-action-types"
-import { addToCart } from "../helpers/cart.utils"
+import { addToCart, removeFromCart } from "../helpers/cart.utils"
 
 
 const INITIAL_STATE = {
@@ -25,6 +25,11 @@ const CartReducer = (state=INITIAL_STATE,{type,payload}) =>{
                 ...state,
                 cartItems:state.cartItems.filter((item)=>item.id !== payload.id)
             }
+            case CartActionTypes.DECREASE_CART_ITEM:
+                return{
+                    ...state,
+                    cartItems :removeFromCart(state.cartItems,payload)
+                }
         
         default:
             return state
